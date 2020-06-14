@@ -149,6 +149,6 @@ fi
 if [ "$opt1" = "4" ]; then
   echo "Here is our GitHub page:"
   echo ""
-  echo "https://github.com/X19S/AutoInstall-NextCloud"
+  echo "https://github.com/X19S/homebridge"
   echo ""
 fi
