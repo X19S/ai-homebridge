@@ -24,8 +24,8 @@ echo "                        &%%%%%%%%%%%&                       "
 echo "                                                            "
 echo " 1. Install Homebridge and Config UI X"
 echo " 2. Install Homebridge"
-echo " 2. Uninstall Homebridge"
-echo " 3. Get to our GitHub page"
+echo " 3. Uninstall Homebridge"
+echo " 4. Get to our GitHub page"
 echo ""
 echo " Made by AutoInst.me"
 echo ""
@@ -68,10 +68,6 @@ if [ "$opt1" = "1" ]; then
 
     #Installing Service and creating User
     hb-service install --user homebridge
-
-    echo "Homebridge is now installed!"
-    echo "http://<ip address of your server>:8581"
-    echo "User: admin   Pass: admin"
   fi
 fi
 
@@ -109,10 +105,6 @@ if [ "$opt1" = "2" ]; then
 
     #Installing Service and creating User
     hb-service install --user homebridge
-
-    echo "Homebridge is now installed!"
-    echo "http://<ip address of your server>:8581"
-    echo "User: admin   Pass: admin"
   fi
 fi
 
