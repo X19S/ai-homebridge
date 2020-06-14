@@ -24,10 +24,9 @@ echo "                        &%%%%%%%%%%%&                       "
 echo "                                                            "
 echo "          +---------------------------------------+         "
 echo "          | 1. Install Homebridge and Config UI X |         "
-echo "          | 2. Install Homebridge                 |         "
-echo "          | 3. Uninstall Homebridge               |         "
-echo "          | 4. Homebridge Administration          |         "
-echo "          | 5. Get to our GitHub page             |         "
+echo "          | 2. Uninstall Homebridge               |         "
+echo "          | 3. Homebridge Administration          |         "
+echo "          | 4. Get to our GitHub page             |         "
 echo "          +---------------------------------------+         "
 echo "                    Visit us @ AutoInst.me                  "
 echo ""
@@ -71,20 +70,8 @@ if [ "$opt1" = "1" ]; then
     #Installing Service and creating User
     hb-service install --user homebridge
   fi
-fi
 
-if [ "$opt1" = "2" ]; then
-
-  echo ">>> Which distro? <<<"
-  echo " 1. Ubuntu/Debian"
-  echo " 2. RaspiOS"
-  echo ""
-  echo ""
-
-  read -p "Select your option: " opt2
-  clear
-
-  if [ "$opt2" = "1" ]; then
+  if [ "$opt2" = "2" ]; then
 
     echo "Updating system..."
 
@@ -100,14 +87,19 @@ if [ "$opt1" = "2" ]; then
 
     #Install Node.js
     apt install -y nodejs gcc g++ make python
-    clear
 
-    echo "Installing Homebridge..."
-    npm install -g --unsafe-perm homebridge
+    #Upgrade npm (version 6.13.4 has issues with git dependencies)
+    npm install -g npm
+
+    echo "Installing Homebridge and Config UI X..."
+    npm install -g --unsafe-perm homebridge homebridge-config-ui-x
+
+    #Installing Service and creating User
+    hb-service install --user homebridge
   fi
 fi
 
-if [ "$opt1" = "3" ]; then
+if [ "$opt1" = "2" ]; then
 
 #Uninstalling the service
 hb-service uninstall
@@ -118,7 +110,7 @@ echo "Homebridge is now uninstalled!"
 echo ""
 fi
 
-if [ "$opt1" = "4" ]; then
+if [ "$opt1" = "3" ]; then
   echo ""
   echo "          +---------------------------------------+         "
   echo "          | 1. Start Homebridge service           |         "
@@ -154,7 +146,7 @@ if [ "$opt1" = "4" ]; then
     fi
 fi
 
-if [ "$opt1" = "5" ]; then
+if [ "$opt1" = "4" ]; then
   echo "Here is our GitHub page:"
   echo ""
   echo "https://github.com/X19S/AutoInstall-NextCloud"
